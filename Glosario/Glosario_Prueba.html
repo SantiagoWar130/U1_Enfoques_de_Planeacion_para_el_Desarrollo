@@ -1,268 +1,328 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Créditos Integrados</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Glosario Interactivo</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  /* ============================
+     FONDO (bg-container)
+     ============================ */
+  .bg-container{
+    --bgc-0:#fff; --bgc-1:#111; --bgc-2:#222; --bgc-3:#333; --bgc-4:#2e2e2e;
+    --bgc-5:#d2b48c; --bgc-6:#b22222; --bgc-7:#871a1a; --bgc-8:#ff6347; --bgc-9:#ff3814;
+    position:fixed; inset:0; width:100%; height:100%; z-index:-1;
+    background-color:var(--bgc-1);
+    background-image:
+      linear-gradient(to top, var(--bgc-2) 5%, var(--bgc-1) 6%, var(--bgc-1) 7%, transparent 7%),
+      linear-gradient(to bottom, var(--bgc-1) 30%, transparent 80%),
+      linear-gradient(to right, var(--bgc-2), var(--bgc-4) 5%, transparent 5%),
+      linear-gradient(to right, transparent 6%, var(--bgc-2) 6%, var(--bgc-4) 9%, transparent 9%),
+      linear-gradient(to right, transparent 27%, var(--bgc-2) 27%, var(--bgc-4) 34%, transparent 34%),
+      linear-gradient(to right, transparent 51%, var(--bgc-2) 51%, var(--bgc-4) 57%, transparent 57%),
+      linear-gradient(to bottom, var(--bgc-1) 35%, transparent 35%),
+      linear-gradient(to right, transparent 42%, var(--bgc-2) 42%, var(--bgc-4) 44%, transparent 44%),
+      linear-gradient(to right, transparent 45%, var(--bgc-2) 45%, var(--bgc-4) 47%, transparent 47%),
+      linear-gradient(to right, transparent 48%, var(--bgc-2) 48%, var(--bgc-4) 50%, transparent 50%),
+      linear-gradient(to right, transparent 87%, var(--bgc-2) 87%, var(--bgc-4) 91%, transparent 91%),
+      linear-gradient(to bottom, var(--bgc-1) 37.5%, transparent 37.5%),
+      linear-gradient(to right, transparent 14%, var(--bgc-2) 14%, var(--bgc-4) 20%, transparent 20%),
+      linear-gradient(to bottom, var(--bgc-1) 40%, transparent 40%),
+      linear-gradient(to right, transparent 10%, var(--bgc-2) 10%, var(--bgc-4) 13%, transparent 13%),
+      linear-gradient(to right, transparent 21%, var(--bgc-2) 21%, #1a1a1a 25%, transparent 25%),
+      linear-gradient(to right, transparent 58%, var(--bgc-2) 58%, var(--bgc-4) 64%, transparent 64%),
+      linear-gradient(to right, transparent 92%, var(--bgc-2) 92%, var(--bgc-4) 95%, transparent 95%),
+      linear-gradient(to bottom, var(--bgc-1) 48%, transparent 48%),
+      linear-gradient(to right, transparent 96%, var(--bgc-2) 96%, #1a1a1a 99%, transparent 99%),
+      linear-gradient(to bottom, transparent 68.5%, transparent 76%, var(--bgc-1) 76%, var(--bgc-1) 77.5%, transparent 77.5%, transparent 86%, var(--bgc-1) 86%, var(--bgc-1) 87.5%, transparent 87.5%),
+      linear-gradient(to right, transparent 35%, var(--bgc-2) 35%, var(--bgc-4) 41%, transparent 41%),
+      linear-gradient(to bottom, var(--bgc-1) 68%, transparent 68%),
+      linear-gradient(to right, transparent 78%, var(--bgc-3) 78%, var(--bgc-3) 80%, transparent 80%, transparent 82%, var(--bgc-3) 82%, var(--bgc-3) 83%, transparent 83%),
+      linear-gradient(to right, transparent 66%, var(--bgc-2) 66%, var(--bgc-4) 85%, transparent 85%);
+    background-size:300px 150px;
+    background-position:center bottom;
+    pointer-events: none;
+  }
 
-  <!-- Fuente -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  .bg-container::before{
+    content:""; position:absolute; inset:0; background-color:var(--bgc-1);
+    background-image:
+      linear-gradient(to top, var(--bgc-5) 5%, var(--bgc-1) 6%, var(--bgc-1) 7%, transparent 7%),
+      linear-gradient(to bottom, var(--bgc-1) 30%, transparent 30%),
+      linear-gradient(to right, var(--bgc-6), var(--bgc-7) 5%, transparent 5%),
+      linear-gradient(to right, transparent 6%, var(--bgc-8) 6%, var(--bgc-9) 9%, transparent 9%),
+      linear-gradient(to right, transparent 27%, #556b2f 27%, #39481f 34%, transparent 34%),
+      linear-gradient(to right, transparent 51%, #fa8072 51%, #f85441 57%, transparent 57%),
+      linear-gradient(to bottom, var(--bgc-1) 35%, transparent 35%),
+      linear-gradient(to right, transparent 42%, #008080 42%, #004d4d 44%, transparent 44%),
+      linear-gradient(to right, transparent 45%, #008080 45%, #004d4d 47%, transparent 47%),
+      linear-gradient(to right, transparent 48%, #008080 48%, #004d4d 50%, transparent 50%),
+      linear-gradient(to right, transparent 87%, #789 87%, #4f5d6a 91%, transparent 91%),
+      linear-gradient(to bottom, var(--bgc-1) 37.5%, transparent 37.5%),
+      linear-gradient(to right, transparent 14%, #bdb76b 14%, #989244 20%, transparent 20%),
+      linear-gradient(to bottom, var(--bgc-1) 40%, transparent 40%),
+      linear-gradient(to right, transparent 10%, #808000 10%, #4d4d00 13%, transparent 13%),
+      linear-gradient(to right, transparent 21%, #8b4513 21%, #5e2f0d 25%, transparent 25%),
+      linear-gradient(to right, transparent 58%, #8b4513 58%, #5e2f0d 64%, transparent 64%),
+      linear-gradient(to right, transparent 92%, #2f4f4f 92%, #1c2f2f 95%, transparent 95%),
+      linear-gradient(to bottom, var(--bgc-1) 48%, transparent 48%),
+      linear-gradient(to right, transparent 96%, #2f4f4f 96%, #1c2f2f 99%, transparent 99%),
+      linear-gradient(to bottom, transparent 68.5%, transparent 76%, var(--bgc-1) 76%, var(--bgc-1) 77.5%, transparent 77.5%, transparent 86%, var(--bgc-1) 86%, var(--bgc-1) 87.5%, transparent 87.5%),
+      linear-gradient(to right, transparent 35%, #cd5c5c 35%, #bc3a3a 41%, transparent 41%),
+      linear-gradient(to bottom, var(--bgc-1) 68%, transparent 68%),
+      linear-gradient(to right, transparent 78%, #bc8f8f 78%, #bc8f8f 80%, transparent 80%, transparent 82%, #bc8f8f 82%, #bc8f8f 83%, transparent 83%),
+      linear-gradient(to right, transparent 66%, #a52a2a 66%, #7c2020 85%, transparent 85%);
+    background-size:300px 150px;
+    background-position:center bottom;
+    clip-path: circle(150px at center center);
+    animation: bg-flashlight 20s ease infinite;
+    pointer-events: none;
+  }
 
-  <!-- GSAP -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+  .bg-container::after{
+    content:""; width:25px; height:10px; position:absolute; left:calc(50% + 59px); bottom:100px;
+    background-repeat:no-repeat;
+    background-image: radial-gradient(circle,#fff 50%,transparent 50%), radial-gradient(circle,#fff 50%,transparent 50%);
+    background-size:10px 10px; background-position:left center, right center;
+    animation: bg-eyes 20s infinite;
+    pointer-events: none;
+  }
 
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #fafafa;
-      color: #000;
-      margin: 0;
-      padding: 20px;
-      overflow-x: hidden;
-    }
+  @keyframes bg-flashlight {
+    0% { clip-path: circle(150px at -25% 10%); }
+    38% { clip-path: circle(150px at 60% 20%); }
+    39% { opacity: 1; clip-path: circle(150px at 60% 86%); }
+    40% { opacity: 0; clip-path: circle(150px at 60% 86%); }
+    41% { opacity: 1; clip-path: circle(150px at 60% 86%); }
+    42% { opacity: 0; clip-path: circle(150px at 60% 86%); }
+    54% { opacity: 0; clip-path: circle(150px at 60% 86%); }
+    55% { opacity: 1; clip-path: circle(150px at 60% 86%); }
+    59% { opacity: 1; clip-path: circle(150px at 60% 86%); }
+    64% { clip-path: circle(150px at 45% 78%); }
+    68% { clip-path: circle(150px at 85% 89%); }
+    72% { clip-path: circle(150px at 60% 86%); }
+    74% { clip-path: circle(150px at 60% 86%); }
+    100% { clip-path: circle(150px at 150% 50%); }
+  }
 
-    /* ===== ONDA SUPERIOR ===== */
-    .wave-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 200px;
-      overflow: hidden;
-      pointer-events: none;
-      z-index: 0;
-    }
+  @keyframes bg-eyes {
+    0%,38% { opacity:0; }
+    39%,41% { opacity:1; transform:scaleY(1); }
+    40% { transform:scaleY(0); filter:none; }
+    41% { transform:scaleY(1); background-image: radial-gradient(circle,#ff0000 50%,transparent 50%), radial-gradient(circle,#ff0000 50%,transparent 50%); filter:drop-shadow(0 0 4px #ff8686); }
+    42%,100% { opacity:0; }
+  }
 
-    .wave {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 400%;
-      height: 100%;
-      background-repeat: repeat-x;
-      background-position: 0 top;
-      transform-origin: top;
-    }
+  /* ============================
+     CONTENIDO
+     ============================ */
+  :root {
+    --accent: #2989E6;
+    --bg: #2989E6;
+    --card-bg: #ffffff;
+    --text: #222;
+  }
 
-    @keyframes moveWave {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
+  body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+  }
 
-    /* ===== BLOQUES ===== */
-    .block {
-      width: 100%;
-      max-width: 1000px;
-      margin: 0 auto 30px auto;
-      position: relative;
-      z-index: 1;
-    }
+  .app {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+  }
 
-    /* ===== CRÉDITOS ===== */
-    .container-credits {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 60px;
-      font-size: 17px;
-      line-height: 1.9;
-      visibility: hidden;
-    }
+  header {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: var(--accent);
+    color: white;
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+  }
 
-    .left { text-align: right; }
-    .right { text-align: left; }
+  header h1 { margin:0; font-size:2rem; }
 
-    h1 {
-      font-weight: 600;
-      font-size: 30px;
-      margin: 0 0 15px 0;
-      color: #1a1a1a;
-    }
+  .alphabet-nav {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:.9rem;
+    padding:1rem;
+  }
 
-    p { margin: 0 0 8px 0; }
+  .alphabet-nav button {
+    background:var(--card-bg);
+    border:1.5px solid var(--accent);
+    color:var(--accent);
+    padding:.7rem .9rem;
+    font-weight:700;
+    font-size: 17px;
+    border-radius:.4rem;
+    cursor:pointer;
+    transition:all .25s ease;
+  }
 
-    .version {
-      font-size: 14px;
-      color: #d1d5d8;
-      margin-top: 20px;
-      padding-top: 10px;
-    }
+  .alphabet-nav button.active,
+  .alphabet-nav button:hover {
+    background:var(--accent);
+    color:#fff;
+  }
 
-    .divider {
-      width: 1px;
-      background-color: #e0e0e0;
-      height: 200px;
-      align-self: center;
-    }
+  .glossary {
+    max-width:900px;
+    margin:2rem auto;
+    padding:0 1rem;
+    opacity: 90%;
+  }
 
-    /* ===== LOGOS ===== */
-    .logos-block {
-      text-align: center;
-    }
+  .group { margin-bottom:2rem; }
 
-    .logos-block img {
-      max-width: 65%;
-      height: auto;
-      margin-bottom: 10px;
-    }
+  .group h2 {
+    background:var(--accent);
+    color:white;
+    padding:.5rem 1rem;
+    border-radius:.5rem;
+  }
 
-    .logos-text {
-      font-size: 15px;
-      color: #333;
-    }
+  .term {
+    background:var(--card-bg);
+    border-radius:.8rem;
+    padding:1rem;
+    margin:.5rem 0;
+    transition: transform .2s ease;
+  }
 
-    /* ===== CITA ===== */
-    .container-quote {
-      padding: 20px;
-      line-height: 1.8;
-      text-align: left;
-      border-left: 3px solid #d1d5d8;
-    }
+  .term:hover { transform: translateY(-3px); }
 
-    h2 {
-      font-size: 16px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: #888;
-      margin-bottom: 10px;
-      font-weight: 600;
-    }
+  .term h3 { margin:0 0 .3rem; color:var(--accent); }
 
-    #quote {
-      font-size: 15px;
-      font-weight: 400;
-      color: #888;
-      display: inline;
-    }
+  .hidden { display:none; }
 
-    .cursor {
-      display: inline-block;
-      width: 3px;
-      background-color: #ffcc00;
-      margin-left: 3px;
-      height: 1.2em;
-      vertical-align: middle;
-    }
-
-    .version-tag {
-      margin-top: 20px;
-      font-size: 12px;
-      color: #d1d5d8;
-      opacity: 0;
-    }
-  </style>
+  @media (max-width:600px) {
+    .term { padding:.8rem; }
+  }
+</style>
 </head>
 <body>
 
-  <!-- Onda -->
-  <div class="wave-container">
-    <div class="wave" id="waveElement"></div>
-  </div>
+  <!-- fondo decorativo -->
+  <div class="bg-container" aria-hidden="true"></div>
 
-  <!-- ===== BLOQUE 1: CRÉDITOS ===== -->
-  <div class="block">
-    <div class="container-credits" id="credit-container">
-      <div class="left">
-        <h1>Compilador</h1>
-        <p>Libia Esperanza Sierra Forero</p>
+  <!-- app content -->
+  <div class="app">
+    <header>
+      <h1>Glosario de la Unidad</h1>
+    </header>
+
+    <section class="glossary" aria-live="polite">
+
+      <nav class="alphabet-nav" role="navigation" aria-label="Navegación alfabética">
+        <button data-group="A-D" class="active">A – D</button>
+        <button data-group="E-I">E – I</button>
+        <button data-group="M-P">M – P</button>
+        <button data-group="R-Z">R – Z</button>
+      </nav>
+
+      <!-- Grupo A-D -->
+      <div class="group" data-group="A-D">
+        <h2>A – D</h2>
+        <div class="term"><h3>Acorde</h3><p>Conjunto de al menos tres notas diferentes que suenan simultáneamente.</p></div>
+        <div class="term"><h3>Armonía</h3><p>Unión y combinación de sonidos simultáneos diferentes pero acordes; arte de formar y enlazar acordes.</p></div>
+        <div class="term"><h3>Arte</h3><p>Manifestación de la capacidad humana para crear belleza y expresar ideas, sentimientos o visiones mediante combinaciones sonoras.</p></div>
+        <div class="term"><h3>Atención</h3><p>Facultad de centrar la mente en ciertos estímulos; en música, es clave para responder al ritmo o al sonido.</p></div>
+        <div class="term"><h3>Audición</h3><p>Acción de oír o prueba hecha a un músico para valorar sus cualidades.</p></div>
+        <div class="term"><h3>Competencia</h3><p>Capacidad o habilidad para desempeñar adecuadamente una tarea o actividad.</p></div>
+        <div class="term"><h3>Contexto</h3><p>Entorno o situación en que se produce un hecho o se desarrolla una actividad.</p></div>
+        <div class="term"><h3>Corchea</h3><p>Figura o nota musical cuyo valor es la octava parte del compasillo.</p></div>
+        <div class="term"><h3>Creatividad</h3><p>Capacidad de crear o de producir cosas nuevas y valiosas.</p></div>
+        <div class="term"><h3>Crescendo</h3><p>Aumento gradual de la intensidad del sonido.</p></div>
+        <div class="term"><h3>Currículo</h3><p>Conjunto de estudios y prácticas destinadas a que el alumno desarrolle plenamente sus posibilidades.</p></div>
+        <div class="term"><h3>Didáctica</h3><p>Parte de la pedagogía que se ocupa de los métodos prácticos de enseñanza y aprendizaje.</p></div>
+        <div class="term"><h3>Disonancia</h3><p>Acorde no consonante.</p></div>
+        <div class="term"><h3>Diversidad</h3><p>Variedad, diferencia, multiplicidad de cosas o personas dentro de un grupo o conjunto.</p></div>
       </div>
 
-      <div class="divider"></div>
-
-      <div class="right">
-        <h1>Equipo de Producción</h1>
-        <p>Universidad Pedagógica y Tecnológica de<br>Colombia, UPTC</p>
-        <p>Facultad de Estudios a Distancia</p>
-        <p>Departamento de Innovación Académica</p>
-        <p class="version">Versión 1.0 - Febrero 2026</p>
+      <!-- Grupo E-I -->
+      <div class="group hidden" data-group="E-I">
+        <h2>E – I</h2>
+        <div class="term"><h3>Evaluación</h3><p>Acción y efecto de valorar los conocimientos, actitudes o rendimiento de los estudiantes.</p></div>
+        <div class="term"><h3>Experiencia</h3><p>Conocimiento o habilidad que se adquiere con la práctica o el contacto directo con la realidad.</p></div>
+        <div class="term"><h3>Expresión</h3><p>Manifestación de ideas, emociones o sentimientos a través de medios artísticos.</p></div>
+        <div class="term"><h3>Ética</h3><p>Conjunto de normas morales que rigen la conducta humana.</p></div>
+        <div class="term"><h3>Figura musical</h3><p>Representación gráfica de un sonido en notación musical; la "corchea" es un ejemplo.</p></div>
+        <div class="term"><h3>Folclore</h3><p>Conjunto de las tradiciones, creencias, costumbres y expresiones artísticas populares de un pueblo.</p></div>
+        <div class="term"><h3>Folktrónica</h3><p>Género musical híbrido que fusiona elementos de la música folk con la música electrónica, incorporando ritmos de hip hop, cajas de ritmos y sintetizadores. Alcanzó popularidad en la década de 2000 y se caracteriza por la mezcla de texturas acústicas y electrónicas.</p></div>
+        <div class="term"><h3>Formación</h3><p>Proceso de adquisición de conocimientos, habilidades y valores.</p></div>
+        <div class="term"><h3>Hegemonía</h3><p>Supremacía o predominio de una entidad sobre otras, especialmente en el ámbito cultural o social.</p></div>
+        <div class="term"><h3>Identidad</h3><p>Conjunto de rasgos propios de un individuo o de una colectividad que los caracterizan frente a los demás.</p></div>
+        <div class="term"><h3>Improvisación</h3><p>Acción de crear o ejecutar algo de manera espontánea y sin preparación previa.</p></div>
+        <div class="term"><h3>Inclusión</h3><p>Acción de integrar a personas o grupos que están marginados o en situación de desventaja.</p></div>
+        <div class="term"><h3>Infraestructura</h3><p>Conjunto de elementos o servicios que se consideran necesarios para el funcionamiento de una organización o actividad.</p></div>
+        <div class="term"><h3>Inteligencia</h3><p>En contexto musical didáctico, capacidad cognitiva para analizar, comprender y dar sentido a la experiencia musical vivida.</p></div>
+        <div class="term"><h3>Intensidad</h3><p>Relacionada con la dinámica musical: el grado de fuerza o suavidad con que se ejecutan los sonidos.</p></div>
+        <div class="term"><h3>Interculturalidad</h3><p>Relación equitativa y respetuosa entre culturas distintas que conviven en un mismo espacio o contexto.</p></div>
       </div>
-    </div>
-  </div>
 
-  <!-- ===== BLOQUE 2: LOGOS ===== -->
-  <div class="block">
-    <div class="logos-block">
-      <img src="logos.png" alt="Logos institucionales">
-      <div class="logos-text">
-        Esta transformación digital es de uso académico y exclusivo de la Universidad Pedagógica y Tecnológica de Colombia.
+      <!-- Grupo M-P -->
+      <div class="group hidden" data-group="M-P">
+        <h2>M – P</h2>
+        <div class="term"><h3>Melodía</h3><p>Sucesión de sonidos que desarrolla una idea musical, independiente de su acompañamiento.</p></div>
+        <div class="term"><h3>Método</h3><p>Conjunto ordenado de procedimientos y reglas para enseñar algo, en este caso para la educación musical.</p></div>
+        <div class="term"><h3>Metodología</h3><p>Conjunto de métodos que se siguen en una investigación científica o en una exposición doctrinal.</p></div>
+        <div class="term"><h3>Movimiento</h3><p>En contexto musical-pedagógico, desplazamiento corporal asociado al ritmo.</p></div>
+        <div class="term"><h3>Música</h3><p>Arte de combinar los sonidos de la voz humana o de los instrumentos para producir deleite y conmover la sensibilidad.</p></div>
+        <div class="term"><h3>Patrimonio</h3><p>Conjunto de los bienes, materiales o inmateriales, que una comunidad ha heredado de sus antepasados y considera de valor cultural.</p></div>
+        <div class="term"><h3>Pedagogía</h3><p>Ciencia que trata de la educación y la enseñanza, especialmente la infantil.</p></div>
+        <div class="term"><h3>Percepción</h3><p>En música, cómo el oyente o intérprete recibe y procesa los estímulos sonoros.</p></div>
+        <div class="term"><h3>Practice-as-research</h3><p>Práctica como investigación.</p></div>
       </div>
-    </div>
+
+      <!-- Grupo R-Z -->
+      <div class="group hidden" data-group="R-Z">
+        <h2>R – Z</h2>
+        <div class="term"><h3>Repertorio</h3><p>Conjunto de obras o piezas que un artista o grupo puede interpretar.</p></div>
+        <div class="term"><h3>Ritmo</h3><p>Orden acompasado en la sucesión de sonidos; proporción guardada entre los acentos, pausas y repeticiones de diversa duración.</p></div>
+        <div class="term"><h3>Rítmico / Rítmica</h3><p>Perteneciente o relativo al ritmo o al metro.</p></div>
+        <div class="term"><h3>Sensibilidad</h3><p>Capacidad de percibir o reaccionar ante estímulos estéticos o emocionales.</p></div>
+        <div class="term"><h3>Silencio</h3><p>En música, pausa o ausencia de sonido durante una duración determinada.</p></div>
+        <div class="term"><h3>Streaming</h3><p>Emisión o transmisión en directo; se desaconseja el uso del anglicismo con este sentido.</p></div>
+        <div class="term"><h3>Tempo</h3><p>Grado de rapidez con que debe ejecutarse una composición musical.</p></div>
+        <div class="term"><h3>Transversal</h3><p>Que se aplica o se extiende a varios ámbitos o disciplinas de manera general.</p></div>
+        <div class="term"><h3>Transmisión</h3><p>Acción de comunicar o difundir conocimientos, costumbres o valores a otros.</p></div>
+        <div class="term"><h3>UNESCO</h3><p>Acrónimo de Organización de las Naciones Unidas para la Educación, la Ciencia y la Cultura. Organismo especializado de las Naciones Unidas creado en 1945 que promueve la educación, el desarrollo cultural, la protección del patrimonio, la cooperación científica internacional y la libertad de prensa.</p></div>
+        <div class="term"><h3>"World music" o "músicas del mundo"</h3><p>Género comercial creado a finales de los años 80 para agrupar músicas tradicionales y no tradicionales de diferentes partes del mundo, abarcando géneros folclóricos y populares de diversas culturas que despiertan interés fuera de sus lugares de origen.</p></div>
+      </div>
+
+    </section>
   </div>
 
-  <!-- ===== BLOQUE 3: CITA ===== -->
-  <div class="block">
-    <div class="container-quote">
-      <h2 id="header"></h2>
-      <div id="quote"></div><span class="cursor"></span>
-      <div class="version-tag" id="tag"></div>
-    </div>
-  </div>
+<script>
+  const buttons = document.querySelectorAll('.alphabet-nav button');
+  const groups = document.querySelectorAll('.group');
 
-  <script>
-    // ===== CONFIG ONDA =====
-    const config = {
-      speed: 25,
-      waveCount: 8,
-      color: '#fafafa',
-      opacity: 1
-    };
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
 
-    function initWave() {
-      const wave = document.getElementById('waveElement');
-      const svgPath = `M0 0 V50 Q250 100 500 50 T1000 50 V0 Z`;
-      const svgContent = `
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
-          <path d="${svgPath}" fill="${config.color}" fill-opacity="${config.opacity}"/>
-        </svg>
-      `;
-      const encodedSvg = btoa(svgContent);
-      wave.style.backgroundImage = `url('data:image/svg+xml;base64,${encodedSvg}')`;
-      const backgroundWidth = 100 / (config.waveCount);
-      wave.style.backgroundSize = `${backgroundWidth}% 100%`;
-      wave.style.animation = `moveWave ${config.speed}s linear infinite`;
-    }
-
-    window.addEventListener("load", () => {
-      // activar onda
-      initWave();
-
-      // ===== ANIMACIÓN CRÉDITOS =====
-      gsap.set("#credit-container", { visibility: "visible" });
-
-      const tlCredits = gsap.timeline({ defaults: { ease: "power3.out" } });
-
-      tlCredits.from(".left", { duration: 1.2, x: -50, opacity: 0 })
-        .from(".divider", { duration: 1, scaleY: 0, opacity: 0 }, "-=0.8")
-        .from(".right h1, .right p", {
-          duration: 1,
-          y: 30,
-          opacity: 0,
-          stagger: 0.2
-        }, "-=0.5");
-
-      // ===== ANIMACIÓN CITA =====
-      gsap.registerPlugin(TextPlugin);
-
-      const titleText = "Cómo citar este documento:";
-      const quoteText = "Sierra Forero, L. E. (2026). Unidad 2. Componentes de la Evaluación de la Calidad en Salud: Herramientas de Auditoría. En Auditoria de la calidad en salud I. Universidad Pedagógica y Tecnológica de Colombia.";
-
-      const tl = gsap.timeline();
-
-      tl.to("#header", { duration: 1, text: titleText, ease: "none" })
-        .to("#quote", { duration: 4, text: quoteText, ease: "none" }, "+=0.5");
-
-      gsap.to(".cursor", {
-        opacity: 0,
-        repeat: -1,
-        duration: 0.5,
-        ease: "steps(1)"
+      const target = btn.dataset.group;
+      groups.forEach(g => {
+        if (g.dataset.group === target) {
+          g.classList.remove('hidden');
+          g.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          g.classList.add('hidden');
+        }
       });
-
-      tl.to(".cursor", { opacity: 0, duration: 0.5 })
-        .to("#tag", { opacity: 1, y: -10, duration: 1 }, "-=0.5");
     });
-  </script>
-
+  });
+</script>
 </body>
 </html>
